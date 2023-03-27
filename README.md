@@ -1,2 +1,3 @@
-# python-quick-ref
-Pyrhon quick-reference.
+# Python quick-reference
+
+Python quick-reference.
