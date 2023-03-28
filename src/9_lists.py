@@ -1,3 +1,10 @@
+'''
+Lists:
+- are changable
+- allow duplicates
+- use []
+'''
+
 fruits = ['apple', 'bannana', 'orange',
           'bannana', 'orange']  # can have duplicates
 print(fruits)
