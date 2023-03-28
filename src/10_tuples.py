@@ -1,6 +1,6 @@
 '''
 Tuples:
-- are NOT changable
+- NOT changable
 - allow duplicates
 - use ()
 - can contain diff data types

@@ -1,12 +1,13 @@
 '''
 Lists:
-- are changable
+- changable
 - allow duplicates
 - use []
+- can contain diff data types
 '''
 
-fruits = ['apple', 'bannana', 'orange',
-          'bannana', 'orange']  # can have duplicates
+fruits = ['apple', 'banana', 'orange',
+          'banana', 'orange']  # can have duplicates
 print(fruits)
 print(fruits[2])  # orange
 print(len(fruits))  # 5
