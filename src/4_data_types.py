@@ -5,3 +5,6 @@
 
 x = 4
 print(type(x))  # <class 'int'>
+
+y = 'some text'
+print(type(y))  # <class 'str'>

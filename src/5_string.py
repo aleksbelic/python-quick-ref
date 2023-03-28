@@ -13,3 +13,13 @@ print(s3)
 s4 = 'abc'
 print(s4[1])  # 'b
 print(len(s4))  # 3
+
+# concat using plus sign:
+str1 = 'Here\'s'
+str2 = 'Johnny'
+print(str1 + ' ' + str2)
+# Here's Johnny
+
+# concat with comma:
+print('This', 'can', 'be', 'a', 'sentence')
+# This can be a sentence

@@ -9,6 +9,16 @@ b
 c
 '''
 
+friends = ['Lucky', 'Jojy', 'Chandler']
+for f in friends:
+    print('Hi', f)
+
+'''
+Hi Lucky
+Hi Jojy
+Hi Chandler
+'''
+
 # FOR loop with ELSE:
 for x in 'abc':
     print(x)
