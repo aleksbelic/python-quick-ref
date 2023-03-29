@@ -1,3 +1,5 @@
+a, b , c = 1, 2, 3
+
 if 3 > 6:
     pass  # do nothing
 
