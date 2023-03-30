@@ -57,3 +57,11 @@ pip install -r requirements.txt
 ```
 
 ---
+
+## PYTEST
+
+Run all tests from project root:
+
+```
+pytest
+```
