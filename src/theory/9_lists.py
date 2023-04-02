@@ -50,3 +50,15 @@ l2 = l1.copy()  # no reference
 l1.pop()
 print(l1)  # [1, 2]
 print(l2)  # [1, 2, 3]
+
+# IS (compares object IDs)
+
+l1 = [1, 2, 3]
+l2 = l1  # by reference: when l1 changes - l2 also changes
+l3 = l2.copy()  # copy: when l3 changes - l2 does not change
+print(l1 == l2)  # True, same content
+print(l1 is l2)  # True, same object
+print(id(l1) == id(l2))  # True (same as above)
+print(l2 == l3)  # True, same content
+print(l2 is l3)  # False, different objects
+print(id(l2) == id(l3))  # False (same as above)
