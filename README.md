@@ -69,7 +69,7 @@ py -m venv <FOLDER_CONTAINING_DEPS>
 e.g.
 
 ```
-py -m venv env
+py -m venv .venv
 ```
 
 ---
