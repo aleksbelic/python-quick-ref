@@ -1,6 +1,6 @@
 # Python quick-reference
 
-## Using `PIP`
+### Using `PIP`
 
 Install package:
 
@@ -58,7 +58,23 @@ pip install -r requirements.txt
 
 ---
 
-## PYTEST
+### Virtual Environment (`VENV`)
+
+Inside project root:
+
+```
+py -m venv <FOLDER_CONTAINING_DEPS>
+```
+
+e.g.
+
+```
+py -m venv env
+```
+
+---
+
+### PYTEST
 
 Run all tests from project root:
 
