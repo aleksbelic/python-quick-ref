@@ -72,6 +72,20 @@ e.g.
 py -m venv .venv
 ```
 
+Activate venv from project root:
+
+```
+.venv\Scripts\activate.bat
+```
+
+(.venv) will show up in terminal afterward.
+
+Deactivate venv from project root:
+
+```
+deactivate
+```
+
 ---
 
 ### PYTEST
