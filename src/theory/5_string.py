@@ -23,3 +23,24 @@ print(str1 + ' ' + str2)
 # concat with comma:
 print('This', 'can', 'be', 'a', 'sentence')
 # This can be a sentence
+
+# find
+print('abc'.find('c'))  # 2
+print('abc'.find('C'))  # -1
+
+# in
+print('word' in 'This is a word')  # True
+
+# capitalize
+print('abc'.capitalize())  # 'Abc'
+
+# upper
+print('abc'.upper())  # 'ABC'
+
+# replace
+print('abc'.replace('b', 'X'))  # 'aXc'
+
+# Strings are immutable = whenever we change them - we end up with new object in memory
+x = 'abc'
+print(x[1])  # 'b'
+x[1] = 'w'  # TypeError: 'str' object does not support item assignment

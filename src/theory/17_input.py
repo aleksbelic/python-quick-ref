@@ -1,5 +1,5 @@
 name = input('My name is: ')
-print(name)
+print('Hello ' + name)
 
 # My name is: Johnny
-# 'Johnny'
+# 'Hello Johnny'
