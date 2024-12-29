@@ -9,13 +9,13 @@ b
 c
 '''
 
-friends = ['Lucky', 'Jojy', 'Chandler']
+friends = ['Lucky', 'Joey', 'Chandler']
 for f in friends:
     print('Hi', f)
 
 '''
 Hi Lucky
-Hi Jojy
+Hi Joey
 Hi Chandler
 '''
 
@@ -30,4 +30,13 @@ a
 b
 c
 finished!
+'''
+
+for num in range(3):
+    print(num)
+
+'''
+0
+1
+2
 '''

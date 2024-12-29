@@ -72,10 +72,16 @@ e.g.
 py -m venv .venv
 ```
 
-Activate venv from project root:
+Activate venv from project root on `Windows`:
 
 ```
 .venv\Scripts\activate.bat
+```
+
+Activate venv from project root on `Linux`:
+
+```
+source ./.venv/bin/activate
 ```
 
 (.venv) will show up in terminal afterward.
