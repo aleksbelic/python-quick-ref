@@ -1,6 +1,6 @@
 '''
 Lists:
-- changable
+- changeable
 - allow duplicates
 - use []
 - can contain diff data types
@@ -62,3 +62,7 @@ print(id(l1) == id(l2))  # True (same as above)
 print(l2 == l3)  # True, same content
 print(l2 is l3)  # False, different objects
 print(id(l2) == id(l3))  # False (same as above)
+
+# CONCAT
+my_list = ['a', 'b', 'c']
+print('-'.join(my_list))  # a-b-c

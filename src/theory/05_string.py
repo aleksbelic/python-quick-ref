@@ -24,6 +24,10 @@ print(str1 + ' ' + str2)
 print('This', 'can', 'be', 'a', 'sentence')
 # This can be a sentence
 
+# split
+print('a-b-c'.split('-'))
+# ['a', 'b', 'c']
+
 # find
 print('abc'.find('c'))  # 2
 print('abc'.find('C'))  # -1
