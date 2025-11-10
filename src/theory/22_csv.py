@@ -13,7 +13,25 @@ Name: Bob, Email:  bob@example.com, Age:  34
 Name: Charlie, Email:  charlie@example.com, Age:  25
 '''
 
-# Reading from a CSV file with a header row:
+print('---')
+
+# Reading from a CSV file with a header row & skipping it:
+with open('./data/user-data-with-header.csv') as my_csv_file_with_header:
+    csv_reader = csv.reader(my_csv_file_with_header)
+    next(csv_reader)  # Skip the header row
+    for row in csv_reader:
+        name, email, age = row
+        print(f'Name: {name}, Email: {email}, Age: {age}')
+
+'''
+Name: Alice, Email:  alice@example.com, Age:  28
+Name: Bob, Email:  bob@example.com, Age:  34
+Name: Charlie, Email:  charlie@example.com, Age:  25
+'''
+
+print('---')
+
+# Reading from a CSV file with a header row & DictReader:
 with open('./data/user-data-with-header.csv') as my_csv_file_with_header:
     csv_dict_reader = csv.DictReader(my_csv_file_with_header)
     for row in csv_dict_reader:
@@ -24,6 +42,8 @@ Name: Alice, Email:  alice@example.com, Age:  28
 Name: Bob, Email:  bob@example.com, Age:  34
 Name: Charlie, Email:  charlie@example.com, Age:  25
 '''
+
+print('---')
 
 # Writing to a CSV file from a list of dictionaries:
 some_user_data = [
