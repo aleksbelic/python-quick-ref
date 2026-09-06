@@ -33,9 +33,9 @@ print('---')
 
 # Reading from a CSV file with a header row & DictReader:
 with open('./data/user-data-with-header.csv') as my_csv_file_with_header:
-    csv_dict_reader = csv.DictReader(my_csv_file_with_header)
-    for row in csv_dict_reader:
-        print(f'Name: {row["name"]}, Email: {row["email"]}, Age: {row["age"]}')
+    csv_dict_reader = csv.DictReader(my_csv_file_with_header)  # type: ignore
+    for user_row in csv_dict_reader:
+        print(f'Name: {user_row["name"]}, Email: {user_row["email"]}, Age: {user_row["age"]}')
 
 '''
 Name: Alice, Email:  alice@example.com, Age:  28
