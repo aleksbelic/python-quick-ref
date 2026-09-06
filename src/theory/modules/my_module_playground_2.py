@@ -1,4 +1,4 @@
 # importing just a function:
-from my_module_dir.my_module_file_1 import hello_print
+from my_module_dir.my_module_file_1 import hello_name
 
-hello_print('Aleks')  # Hello Aleks
+hello_name('Aleks')  # Hello Aleks

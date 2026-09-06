@@ -3,23 +3,17 @@ import pytest
 from src.practice.is_prime_number import is_prime_number
 
 
-def test_primes():
-    assert is_prime_number(2) is True
-    assert is_prime_number(3) is True
-    assert is_prime_number(17) is True
-    assert is_prime_number(29) is True
+@pytest.mark.parametrize("num", [2, 3, 17, 29])
+def test_primes(num):
+    assert is_prime_number(num) is True
 
 
-def test_non_primes():
-    assert is_prime_number(1) is False
-    assert is_prime_number(0) is False
-    assert is_prime_number(-5) is False
-    assert is_prime_number(16) is False
-    assert is_prime_number(25) is False
+@pytest.mark.parametrize("num", [1, 0, -5, 16, 25])
+def test_non_primes(num):
+    assert is_prime_number(num) is False
 
 
-def test_invalid_input():
+@pytest.mark.parametrize("invalid_input", [3.14, "100"])
+def test_is_prime_number_rejects_invalid_input(invalid_input):
     with pytest.raises(ValueError):
-        is_prime_number(3.14)
-    with pytest.raises(ValueError):
-        is_prime_number("100")
+        is_prime_number(invalid_input)
