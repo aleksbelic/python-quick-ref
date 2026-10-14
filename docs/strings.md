@@ -85,10 +85,12 @@ print('   '.isspace())     # True
 
 ## Escapes and raw strings
 
-A backslash starts an escape sequence such as `\n` (newline) or `\t` (tab). A raw string (`r'...'`) keeps backslashes as they are — handy for Windows paths and [regular expressions](regexp.md).
+A backslash starts an escape sequence such as `\n` (newline) or `\t` (tab). Common ones: `\\` backslash, `\'` and `\"` quotes, `\n` newline, `\r` carriage return, `\t` tab, `\b` backspace, `\xhh` and `\uhhhh` Unicode by code point. A raw string (`r'...'`) keeps backslashes as they are — handy for Windows paths and [regular expressions](regexp.md).
 
 ```python
-print('line1\nline2')
+print('line1\nline2')   # two lines
+print('It\'s')          # It's
+print('backslash: \\')  # backslash: \
 print(r'C:\new\table')  # C:\new\table
 ```
 

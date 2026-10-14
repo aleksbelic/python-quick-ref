@@ -13,15 +13,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.11', '3.x']
     steps:
       - uses: actions/configure-pages@v6
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.x
       - run: pip install .
       - run: zensical build --clean --strict
       - uses: actions/upload-pages-artifact@v5
