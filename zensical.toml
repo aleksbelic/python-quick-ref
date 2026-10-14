@@ -33,6 +33,7 @@ nav = [
     { "Imports" = "imports.md" },
     { "Packages" = "modules.md" },
   ] },
+  { "Practice" = "practice.md" },
 ]
 
 [project.extra]
