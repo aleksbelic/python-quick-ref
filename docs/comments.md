@@ -40,7 +40,7 @@ def greet():
 print(greet.__doc__)  # Print a greeting.
 ```
 
-For functions with arguments, document each parameter and the return value. The Google style below is the most common convention:
+For functions with arguments, document each parameter and the return value. The [Google style](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings) below is the most common convention:
 
 ```python
 def is_palindrome(word: str) -> bool:

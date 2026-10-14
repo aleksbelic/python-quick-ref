@@ -4,7 +4,7 @@ copyright = "Built by <a href=\"https://abelic.com\" target=\"_blank\" rel=\"noo
 nav = [
   { "Home" = "index.md" },
   { "Virtual Env" = "virtual-env.md" },
-  { "Theory" = [
+  { "Chapters" = [
     { "Comments" = "comments.md" },
     { "Variables" = "variables.md" },
     { "Casting" = "casting.md" },
@@ -32,10 +32,10 @@ nav = [
     { "Imports" = "imports.md" },
     { "Packages" = "modules.md" },
   ] },
-  { "Practice" = [
-    { "Fibonacci" = "practice/fibonacci.md" },
-    { "Palindrome" = "practice/palindrome.md" },
-    { "Prime Number" = "practice/prime-number.md" },
+  { "Examples" = [
+    { "Fibonacci" = "examples/fibonacci.md" },
+    { "Palindrome" = "examples/palindrome.md" },
+    { "Prime Number" = "examples/prime-number.md" },
   ] },
   { "Testing" = "testing.md" },
 ]

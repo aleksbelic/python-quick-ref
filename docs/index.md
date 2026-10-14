@@ -38,12 +38,12 @@ Short, runnable lessons — one topic per page, in chapter order.
 - [Mutable vs Immutable](mutable-immutable.md) — what can change in place
 - [Extras](extras.md) — `pass`, `range`, identity, exiting scripts
 
-## Practice
+## Examples
 
-- [Fibonacci](practice/fibonacci.md) — n-th Fibonacci number
-- [Palindrome](practice/palindrome.md) — palindrome check
-- [Prime Number](practice/prime-number.md) — primality test
+- [Fibonacci](examples/fibonacci.md) — n-th Fibonacci number
+- [Palindrome](examples/palindrome.md) — palindrome check
+- [Prime Number](examples/prime-number.md) — primality test
 
 ## Testing
 
-- [Testing](testing.md) — pytest suites for the practice examples
+- [Testing](testing.md) — pytest suites for the examples

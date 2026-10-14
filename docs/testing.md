@@ -1,6 +1,6 @@
 # Testing
 
-Unit tests for the [practice examples](practice/fibonacci.md), written with [pytest](https://pytest.org). Run the whole suite from the project root:
+Unit tests for the [examples](examples/fibonacci.md), written with [pytest](https://pytest.org). Run the whole suite from the project root:
 
 ```bash
 pytest
@@ -13,7 +13,7 @@ Parametrized cases for known values, plus invalid inputs that must raise `ValueE
 ```python
 import pytest
 
-from src.practice.fibonacci import nth_fib
+from src.examples.fibonacci import nth_fib
 
 
 @pytest.mark.parametrize(
@@ -45,7 +45,7 @@ Palindromes (including mixed case, punctuation, and empty string), non-palindrom
 ```python
 import pytest
 
-from src.practice.is_palindrome import is_palindrome
+from src.examples.is_palindrome import is_palindrome
 
 
 @pytest.mark.parametrize(
@@ -87,7 +87,7 @@ Known primes, known non-primes (including `1`, `0`, and negatives), and invalid 
 ```python
 import pytest
 
-from src.practice.is_prime_number import is_prime_number
+from src.examples.is_prime_number import is_prime_number
 
 
 @pytest.mark.parametrize("num", [2, 3, 17, 29])
