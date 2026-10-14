@@ -3,7 +3,10 @@ site_name = "Python Quick Reference"
 copyright = "Built by <a href=\"https://abelic.com\" target=\"_blank\" rel=\"noopener\">Aleksanchez</a>"
 nav = [
   { "Home" = "index.md" },
-  { "Virtual Env" = "virtual-env.md" },
+  { "Setup" = [
+    { "Python Installation" = "setup/python-installation.md" },
+    { "Virtual Env" = "setup/virtual-env.md" },
+  ] },
   { "Chapters" = [
     { "Comments" = "comments.md" },
     { "Variables" = "variables.md" },

@@ -24,6 +24,15 @@ python3 -m venv .venv
 
 This creates a `.venv` folder containing the virtual environment and its installed packages.
 
+Upgrade pip inside the fresh environment (it often lags behind):
+
+```sh
+.venv/bin/python -m pip install --upgrade pip
+```
+
+!!! tip "Prefer `python -m pip` over bare `pip`"
+    `python -m pip` guarantees you use the pip belonging to that Python — active venv or not. Bare `pip` depends on `PATH` order and is a classic source of packages landing in the wrong environment.
+
 ## Activating it
 
 On `Windows` using Command Prompt:
@@ -39,6 +48,12 @@ On `Windows` using PowerShell:
 ```
 
 On `Linux`:
+
+```
+source .venv/bin/activate
+```
+
+On `macOS` (same as Linux):
 
 ```
 source .venv/bin/activate
@@ -111,4 +126,21 @@ Write all installed packages with their version to `requirements.txt`:
 
 ```
 pip freeze > requirements.txt
+```
+
+## Housekeeping
+
+Never commit the environment folder — add it to `.gitignore`:
+
+```
+.venv/
+```
+
+If an environment breaks beyond repair, delete and recreate it (your code is unaffected, only installed packages are lost):
+
+```sh
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
