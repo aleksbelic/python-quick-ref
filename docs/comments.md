@@ -6,7 +6,7 @@ Comments are lines the Python interpreter ignores. Use them to explain code.
 
 Start with `#`. Everything after it on that line is ignored.
 
-```python title="src/theory/01_comments.py"
+```python
 # this is a single-line comment
 ```
 
@@ -16,7 +16,7 @@ Python has no dedicated multi-line comment syntax. Use an unassigned
 triple-quoted string — commonly called a docstring when it documents a module,
 function, or class.
 
-```python title="src/theory/01_comments.py"
+```python
 """
 this
 is
