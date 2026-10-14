@@ -10,7 +10,8 @@ def is_prime_number(num: int) -> bool:
     if num <= 1:
         return False
 
-    for i in range(2, int(num ** 0.5) + 1, 1): # if a divisor exists, it must be <= sqrt(num)
+    # if a divisor exists, one of them must be <= sqrt(num)
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
 
@@ -18,8 +19,8 @@ def is_prime_number(num: int) -> bool:
 ```
 
 ```python
-is_prime_number(29)  # True
-is_prime_number(16)  # False
+print(is_prime_number(29))  # True
+print(is_prime_number(16))  # False
 ```
 
 !!! tip "Why only up to the square root?"

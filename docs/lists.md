@@ -4,27 +4,47 @@ Ordered, changeable collections using `[]`. Allow duplicates and mixed data type
 
 ## Creating and accessing
 
-Index from `0`, use `len()` for the size.
+Index from `0` (negative indexes count from the end), use `len()` for the size.
 
 ```python
 fruits = ['apple', 'banana', 'orange',
           'banana', 'orange']  # can have duplicates
 print(fruits)
 print(fruits[2])  # orange
+print(fruits[-1])  # orange
 print(len(fruits))  # 5
 
 mix = ['apple', 1, 'orange', 234]  # can have diff data types
 print(mix)  # ['apple', 1, 'orange', 234]
 ```
 
+## Slicing
+
+`[start:stop:step]` returns a new list; `stop` is excluded.
+
+```python
+nums = [0, 1, 2, 3, 4, 5]
+print(nums[1:4])  # [1, 2, 3]
+print(nums[:2])  # [0, 1]
+print(nums[-2:])  # [4, 5]
+print(nums[::2])  # [0, 2, 4]
+print(nums[::-1])  # [5, 4, 3, 2, 1, 0]
+```
+
 ## Adding items
 
-`append()` adds one element to the end.
+`append()` adds one element to the end, `insert()` adds at an index, `extend()` adds all elements of another iterable.
 
 ```python
 my_list = ['a', 'b', 'c', 'd', 'e']
 my_list.append('f')
 print(my_list)  # ['a', 'b', 'c', 'd', 'e', 'f']
+
+my_list.insert(0, 'z')
+print(my_list)  # ['z', 'a', 'b', 'c', 'd', 'e', 'f']
+
+my_list.extend(['x', 'y'])
+print(my_list)  # ['z', 'a', 'b', 'c', 'd', 'e', 'f', 'x', 'y']
 ```
 
 ## Removing items
@@ -32,41 +52,83 @@ print(my_list)  # ['a', 'b', 'c', 'd', 'e', 'f']
 `remove()` deletes by value, `pop()` and `del` delete by index.
 
 ```python
-my_list.remove('c')  # removes the first matching element from the list
+my_list = ['a', 'b', 'c', 'd', 'e', 'f']
+
+my_list.remove('c')  # removes the first matching element
 print(my_list)  # ['a', 'b', 'd', 'e', 'f']
-```
 
-```python
-my_list.pop(3)  # removes the element at index 3 (which is 'e') from the list
+my_list.pop(3)  # removes the element at index 3 (which is 'e')
 print(my_list)  # ['a', 'b', 'd', 'f']
-```
 
-```python
-del my_list[1]  # removes the element at index 1 (which is 'b') from the list
+del my_list[1]  # removes the element at index 1 (which is 'b')
 print(my_list)  # ['a', 'd', 'f']
 ```
 
 !!! tip "pop vs del"
-    `pop()` returns the removed element; `del` removes by index or slice and returns nothing.
+    `pop()` returns the removed element (and defaults to the last one); `del` removes by index or slice and returns nothing.
+
+## Searching and counting
+
+```python
+letters = ['a', 'b', 'c', 'b']
+print('b' in letters)  # True
+print(letters.index('b'))  # 1, first position
+print(letters.count('b'))  # 2
+
+nums = [3, 1, 2]
+print(min(nums), max(nums), sum(nums))  # 1 3 6
+```
+
+## Sorting and reversing
+
+`sorted()` returns a new list; `.sort()` sorts in place and returns `None`. Both accept `key` and `reverse`.
+
+```python
+nums = [3, 1, 2]
+print(sorted(nums))  # [1, 2, 3]
+print(sorted(nums, reverse=True))  # [3, 2, 1]
+
+words = ['pear', 'fig', 'banana']
+print(sorted(words, key=len))  # ['fig', 'pear', 'banana']
+
+nums.sort()
+print(nums)  # [1, 2, 3]
+nums.reverse()
+print(nums)  # [3, 2, 1]
+```
+
+!!! warning "Gotcha: `.sort()` returns `None`"
+    `nums = nums.sort()` leaves `nums` as `None`. Use `sorted(nums)` when you want the sorted list as a value.
+
+## Unpacking
+
+Assign list items to names; `*` collects the rest.
+
+```python
+first, second, *rest = [1, 2, 3, 4, 5]
+print(first, second, rest)  # 1 2 [3, 4, 5]
+```
 
 ## References and copies
 
-Assignment copies the reference, not the data. Use `.copy()` for an independent list.
+Assignment binds a second name to the same list; it does not copy it. Use `.copy()` (or a slice `[:]`) for an independent list.
 
 ```python
-my_list2 = my_list  # pass by reference, because it is not a basic data type
-del my_list2[0]
-print(my_list2)  # ['d', 'f']
-print(my_list)  # ['d', 'f']
-```
+original = ['a', 'd', 'f']
+alias = original  # same list, two names
+del alias[0]
+print(alias)  # ['d', 'f']
+print(original)  # ['d', 'f']
 
-```python
 l1 = [1, 2, 3]
-l2 = l1.copy()  # no reference
+l2 = l1.copy()  # independent copy
 l1.pop()
 print(l1)  # [1, 2]
 print(l2)  # [1, 2, 3]
 ```
+
+!!! warning "Gotcha: `.copy()` is shallow"
+    A shallow copy shares nested lists. Use `copy.deepcopy()` for lists of lists. See [Mutable vs Immutable](mutable-immutable.md).
 
 ## Identity vs equality
 
@@ -78,10 +140,8 @@ l2 = l1  # by reference: when l1 changes - l2 also changes
 l3 = l2.copy()  # copy: when l3 changes - l2 does not change
 print(l1 == l2)  # True, same content
 print(l1 is l2)  # True, same object
-print(id(l1) == id(l2))  # True (same as above)
 print(l2 == l3)  # True, same content
 print(l2 is l3)  # False, different objects
-print(id(l2) == id(l3))  # False (same as above)
 ```
 
 ## Joining items
@@ -92,3 +152,6 @@ print(id(l2) == id(l3))  # False (same as above)
 my_list = ['a', 'b', 'c']
 print('-'.join(my_list))  # a-b-c
 ```
+
+!!! tip "Building lists"
+    To build a list from another one, see [Comprehensions](comprehensions.md).

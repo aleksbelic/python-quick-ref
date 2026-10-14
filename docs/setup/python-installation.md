@@ -45,6 +45,14 @@ Then verify:
 python3 --version
 ```
 
+## Or let `uv` install it
+
+[uv](https://docs.astral.sh/uv/) can download and manage Python versions for you on any operating system — see [Tooling](tooling.md#uv).
+
+```
+uv python install 3.11
+```
+
 ## Check pip
 
 Python ships with pip, but confirm it's there and up to date:

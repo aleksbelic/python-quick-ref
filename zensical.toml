@@ -1,46 +1,72 @@
 [project]
 site_name = "Python Quick Reference"
+site_url = "https://abelic.com/python-quick-ref/"
+site_description = "A quick reference for the Python programming language."
+site_author = "Aleksandar Belic Aleksanchez"
+repo_url = "https://github.com/aleksbelic/python-quick-ref"
+repo_name = "aleksbelic/python-quick-ref"
+edit_uri = "edit/main/docs/"
 copyright = "Built by <a href=\"https://abelic.com\" target=\"_blank\" rel=\"noopener\">Aleksanchez</a>"
 nav = [
   { "Home" = "index.md" },
   { "Setup" = [
     { "Python Installation" = "setup/python-installation.md" },
     { "Virtual Env" = "setup/virtual-env.md" },
+    { "Tooling" = "setup/tooling.md" },
   ] },
-  { "Chapters" = [
-    { "Comments" = "comments.md" },
+  { "Basics" = [
+    { "Syntax Basics" = "syntax.md" },
     { "Variables" = "variables.md" },
     { "Data Types" = "data-types.md" },
     { "Casting" = "casting.md" },
-    { "Strings" = "strings.md" },
-    { "Booleans" = "booleans.md" },
-    { "Conditions" = "conditions.md" },
     { "Operators" = "operators.md" },
+    { "Conditions" = "conditions.md" },
+  ] },
+  { "Data Structures" = [
+    { "Strings" = "strings.md" },
     { "Lists" = "lists.md" },
     { "Tuples" = "tuples.md" },
     { "Sets" = "sets.md" },
     { "Dictionaries" = "dictionaries.md" },
-    { "While Loop" = "while-loop.md" },
-    { "For Loop" = "for-loop.md" },
-    { "Functions" = "functions.md" },
-    { "Classes" = "classes.md" },
-    { "Input" = "input.md" },
-    { "Try–Except" = "try-catch.md" },
-    { "Dunders" = "dunders.md" },
-    { "Formatting" = "formatting.md" },
-    { "CSV" = "csv.md" },
-    { "RegExp" = "regexp.md" },
+    { "Comprehensions" = "comprehensions.md" },
+    { "Collections" = "collections.md" },
     { "Mutable vs Immutable" = "mutable-immutable.md" },
-    { "Imports" = "imports.md" },
-    { "Packages" = "modules.md" },
-    { "Extras" = "extras.md" },
   ] },
+  { "Control Flow" = [
+    { "Loops" = "loops.md" },
+    { "Try–Except" = "try-except.md" },
+  ] },
+  { "Functions & OOP" = [
+    { "Functions" = "functions.md" },
+    { "Generators" = "generators.md" },
+    { "Decorators" = "decorators.md" },
+    { "Classes" = "classes.md" },
+    { "Dunders" = "dunders.md" },
+    { "Dataclasses" = "dataclasses.md" },
+    { "Type Hints" = "type-hints.md" },
+  ] },
+  { "I/O & Modules" = [
+    { "Input & Output" = "input.md" },
+    { "Formatting" = "formatting.md" },
+    { "Files & Paths" = "files.md" },
+    { "CSV" = "csv.md" },
+    { "JSON" = "json.md" },
+    { "Dates & Times" = "datetime.md" },
+    { "RegExp" = "regexp.md" },
+    { "Imports & Packages" = "imports.md" },
+    { "Scripts & CLI" = "scripts.md" },
+    { "Logging" = "logging.md" },
+  ] },
+  { "Cheat Sheet" = "cheatsheet.md" },
   { "Examples" = [
     { "Fibonacci" = "examples/fibonacci.md" },
     { "Palindrome" = "examples/palindrome.md" },
     { "Prime Number" = "examples/prime-number.md" },
+    { "Word Counter" = "examples/word-counter.md" },
+    { "CSV Summary" = "examples/csv-summary.md" },
+    { "File Renamer" = "examples/file-renamer.md" },
+    { "Testing" = "examples/testing.md" },
   ] },
-  { "Testing" = "testing.md" },
 ]
 
 [project.extra]
@@ -48,7 +74,19 @@ generator = false
 
 [project.theme]
 features = [
+  "content.action.edit",
+  "content.code.annotate",
   "content.code.copy",
+  "content.tabs.link",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
 ]
 
 # Palette toggle for automatic mode

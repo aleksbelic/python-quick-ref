@@ -15,62 +15,81 @@ variable.
 '''
 ```
 
-## Indexing and length
+## Indexing, slicing and length
 
-Index from `0` with `[]`; `len()` returns the character count.
+Index from `0` with `[]`; negative indexes count from the end. A slice `[start:stop:step]` excludes `stop`. `len()` returns the character count.
 
 ```python
-str1 = 'abc'
-print(str1[1])    # b
-print(len(str1))  # 3
+s = 'abcdef'
+print(s[1])     # b
+print(s[-1])    # f
+print(len(s))   # 6
+
+print(s[1:4])   # bcd
+print(s[:2])    # ab
+print(s[::2])   # ace
+print(s[::-1])  # fedcba, reversed
 ```
 
-## Concatenation
+## Concatenation and repetition
 
-Join with `+`, or pass multiple values to `print()` separated by commas (joined with spaces).
+Join with `+`, repeat with `*`, or pass multiple values to `print()` separated by commas (joined with spaces).
 
 ```python
-# concat using plus sign:
 str1 = 'Here\'s'
 str2 = 'Johnny'
-print(str1 + ' ' + str2)
-# Here's Johnny
+print(str1 + ' ' + str2)  # Here's Johnny
 
-# concat with comma:
-print('This', 'can', 'be', 'a', 'sentence')
-# This can be a sentence
+print('This', 'can', 'be', 'a', 'sentence')  # This can be a sentence
+
+print('Hello' * 3)  # HelloHelloHello
 ```
 
 ## Searching strings
 
-`split()`, `find()`, and `in` locate or break apart text.
+`split()`, `find()`, `count()`, `startswith()`, and `in` locate or break apart text.
 
 ```python
-# split
-print('a-b-c'.split('-'))
-# ['a', 'b', 'c']
+print('a-b-c'.split('-'))  # ['a', 'b', 'c']
 
-# find
 print('abc'.find('c'))  # 2
-print('abc'.find('C'))  # -1
+print('abc'.find('C'))  # -1, not found
+print('banana'.count('an'))  # 2
 
-# in
 print('word' in 'This is a word')  # True
+print('report.csv'.endswith('.csv'))  # True
+print('report.csv'.startswith('rep'))  # True
 ```
 
 ## Transforming strings
 
-Methods like `capitalize()`, `upper()`, and `replace()` return a new string.
+Methods like `upper()`, `strip()`, and `replace()` return a new string.
 
 ```python
-# capitalize
 print('abc'.capitalize())  # Abc
-
-# upper
 print('abc'.upper())  # ABC
-
-# replace
+print('ABC'.lower())  # abc
 print('abc'.replace('b', 'X'))  # aXc
+print('  padded  '.strip())  # padded
+print('-'.join(['a', 'b', 'c']))  # a-b-c
+```
+
+## Checking content
+
+```python
+print('123'.isdigit())    # True
+print('abc'.isalpha())    # True
+print('abc123'.isalnum()) # True
+print('   '.isspace())    # True
+```
+
+## Escapes and raw strings
+
+A backslash starts an escape sequence such as `\n` (newline) or `\t` (tab). A raw string (`r'...'`) keeps backslashes as they are — handy for Windows paths and [regular expressions](regexp.md).
+
+```python
+print('line1\nline2')
+print(r'C:\new\table')  # C:\new\table
 ```
 
 ## Immutability
@@ -78,11 +97,17 @@ print('abc'.replace('b', 'X'))  # aXc
 Strings cannot be changed in place — every change creates a new object.
 
 ```python
-# Strings are immutable = whenever we change them - we end up with new object in memory
 x = 'abc'
 print(x[1])  # b
-x[1] = 'w'  # TypeError: 'str' object does not support item assignment
+
+try:
+    x[1] = 'w'
+except TypeError as error:
+    print(error)  # 'str' object does not support item assignment
 ```
 
 !!! tip "Build a new string instead"
-    To "edit" a string, build a new one with slicing, `replace()`, or `'+'.join(...)`.
+    To "edit" a string, build a new one with slicing, `replace()`, or `'+'.join(...)`. For building a string in a loop, collect the pieces in a list and `join()` them once.
+
+!!! tip "Formatting values into text"
+    Use [f-strings](formatting.md) rather than concatenation when mixing text and values.

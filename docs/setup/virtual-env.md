@@ -2,18 +2,21 @@
 
 A virtual environment keeps project dependencies isolated from the global Python installation. Set one up in the project root before installing anything.
 
+!!! tip "Prefer one command?"
+    [uv](tooling.md#uv) creates and manages the environment for you (`uv add <package>`). This page covers the classic `venv` + `pip` workflow that works everywhere.
+
 ## Creating it
 
 On `Windows`:
 
 ```
-py -m venv <FOLDER_CONTAINING_DEPS>
+py -m venv .venv
 ```
 
 On `Linux`:
 
 ```
-python3 -m venv <FOLDER_CONTAINING_DEPS>
+python3 -m venv .venv
 ```
 
 For example, `.venv` is a conventional folder name:
@@ -80,10 +83,11 @@ Install a package:
 pip install <PACKAGE_NAME>
 ```
 
-Install everything this project needs:
+Install everything this project needs (dependencies live in `pyproject.toml`, see [Tooling](tooling.md#pyprojecttoml)):
 
 ```bash
-pip install -r requirements.txt
+pip install .            # runtime dependencies
+pip install -e .         # editable install for local development
 ```
 
 Uninstall a package:
@@ -142,5 +146,5 @@ If an environment breaks beyond repair, delete and recreate it (your code is una
 rm -rf .venv
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install .
 ```
