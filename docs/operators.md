@@ -40,3 +40,21 @@ print(10 ** 2)  # 100
 
 !!! tip "Float division by default"
     In Python 3, `10 / 5` is `2.0`, not `2`. Use `//` when you want integer division.
+
+## No `===` operator
+
+Unlike JavaScript, Python has no triple-equals. Comparison splits into two operators:
+
+```python
+x = [1, 2]
+y = [1, 2]
+
+print(x == y)  # True, same contents (value equality)
+print(x is y)  # False, different objects (identity)
+```
+
+Use `==` for values. Use `is` only for identity checks — conventionally just `None`:
+
+```python
+print(x is None)  # False
+```
