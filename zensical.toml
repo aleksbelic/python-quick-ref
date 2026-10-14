@@ -31,9 +31,9 @@ nav = [
     { "CSV" = "csv.md" },
     { "RegExp" = "regexp.md" },
     { "Mutable vs Immutable" = "mutable-immutable.md" },
-    { "Extras" = "extras.md" },
     { "Imports" = "imports.md" },
     { "Packages" = "modules.md" },
+    { "Extras" = "extras.md" },
   ] },
   { "Examples" = [
     { "Fibonacci" = "examples/fibonacci.md" },

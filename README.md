@@ -8,7 +8,7 @@ Python `3.11` or newer (required by Zensical).
 
 ## Development
 
-Set up the environment (requires Python `3.11` or newer):
+Set up the environment:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate

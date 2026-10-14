@@ -31,12 +31,9 @@ Short, runnable lessons — one topic per page, in chapter order.
 - [Formatting](formatting.md) — f-strings and `format()`
 - [CSV](csv.md) — reading and writing CSV files
 - [RegExp](regexp.md) — searching and replacing with `re`
+- [Mutable vs Immutable](mutable-immutable.md) — what can change in place
 - [Imports](imports.md) — importing from another file
 - [Packages](modules.md) — packages and import styles
-
-## Extra
-
-- [Mutable vs Immutable](mutable-immutable.md) — what can change in place
 - [Extras](extras.md) — `pass`, `range`, identity, exiting scripts
 
 ## Examples
