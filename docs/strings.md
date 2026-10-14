@@ -26,7 +26,7 @@ Index from `0` with `[]`; `len()` returns the character count.
 
 ```python
 s4 = 'abc'
-print(s4[1])  # 'b
+print(s4[1])  # b
 print(len(s4))  # 3
 ```
 
@@ -69,13 +69,13 @@ Methods like `capitalize()`, `upper()`, and `replace()` return a new string.
 
 ```python
 # capitalize
-print('abc'.capitalize())  # 'Abc'
+print('abc'.capitalize())  # Abc
 
 # upper
-print('abc'.upper())  # 'ABC'
+print('abc'.upper())  # ABC
 
 # replace
-print('abc'.replace('b', 'X'))  # 'aXc'
+print('abc'.replace('b', 'X'))  # aXc
 ```
 
 ## Immutability
@@ -85,7 +85,7 @@ Strings cannot be changed in place — every change creates a new object.
 ```python
 # Strings are immutable = whenever we change them - we end up with new object in memory
 x = 'abc'
-print(x[1])  # 'b'
+print(x[1])  # b
 x[1] = 'w'  # TypeError: 'str' object does not support item assignment
 ```
 

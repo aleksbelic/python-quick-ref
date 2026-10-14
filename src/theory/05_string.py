@@ -11,7 +11,7 @@ variable.
 print(s3)
 
 s4 = 'abc'
-print(s4[1])  # 'b
+print(s4[1])  # b
 print(len(s4))  # 3
 
 # concat using plus sign:
@@ -36,15 +36,15 @@ print('abc'.find('C'))  # -1
 print('word' in 'This is a word')  # True
 
 # capitalize
-print('abc'.capitalize())  # 'Abc'
+print('abc'.capitalize())  # Abc
 
 # upper
-print('abc'.upper())  # 'ABC'
+print('abc'.upper())  # ABC
 
 # replace
-print('abc'.replace('b', 'X'))  # 'aXc'
+print('abc'.replace('b', 'X'))  # aXc
 
 # Strings are immutable = whenever we change them - we end up with new object in memory
 x = 'abc'
-print(x[1])  # 'b'
+print(x[1])  # b
 x[1] = 'w'  # TypeError: 'str' object does not support item assignment

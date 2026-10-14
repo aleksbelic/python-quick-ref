@@ -43,6 +43,11 @@ nav = [
 [project.extra]
 generator = false
 
+[project.theme]
+features = [
+  "content.code.copy",
+]
+
 # Palette toggle for automatic mode
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"

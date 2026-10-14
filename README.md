@@ -1,5 +1,11 @@
 # Python Quick Reference
 
+A quick reference for Python programming language.
+
+## Requirements
+
+Python `3.10` or newer (required by Zensical).
+
 ## Development
 
 Serve the project for development:

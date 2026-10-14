@@ -16,7 +16,7 @@ y = 'this is a string'
 Pass variables to `print()` to display their values.
 
 ```python
-print(x, y)  # '123 this is a string'
+print(x, y)  # 123 this is a string
 ```
 
 !!! tip "Dynamic typing"
