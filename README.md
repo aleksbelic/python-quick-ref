@@ -45,15 +45,7 @@ Now point your browser to `localhost:8000` for preview.
 Build the project for production:
 
 ```bash
-zensical build --clean
-```
-
-## Quality checks
-
-These run in CI on every push to `main`:
-
-```
-zensical build --clean --strict         # fail on warnings and broken links
+zensical build --clean --strict  # fail on warnings and broken links
 ```
 
 ## Project layout
