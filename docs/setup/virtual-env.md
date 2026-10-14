@@ -18,7 +18,7 @@ python3 -m venv <FOLDER_CONTAINING_DEPS>
 
 For example, `.venv` is a conventional folder name:
 
-```sh
+```bash
 python3 -m venv .venv
 ```
 
@@ -26,7 +26,7 @@ This creates a `.venv` folder containing the virtual environment and its install
 
 Upgrade pip inside the fresh environment (it often lags behind):
 
-```sh
+```bash
 .venv/bin/python -m pip install --upgrade pip
 ```
 
@@ -37,7 +37,7 @@ Upgrade pip inside the fresh environment (it often lags behind):
 
 On `Windows` using Command Prompt:
 
-```
+```powershell
 .venv\Scripts\activate.bat
 ```
 
@@ -49,7 +49,7 @@ On `Windows` using PowerShell:
 
 On `Linux`:
 
-```
+```bash
 source .venv/bin/activate
 ```
 
@@ -138,7 +138,7 @@ Never commit the environment folder — add it to `.gitignore`:
 
 If an environment breaks beyond repair, delete and recreate it (your code is unaffected, only installed packages are lost):
 
-```sh
+```bash
 rm -rf .venv
 python3 -m venv .venv
 source .venv/bin/activate

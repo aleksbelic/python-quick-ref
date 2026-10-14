@@ -1,23 +1,18 @@
 # Strings
 
-Strings hold text. Quote them with single, double, or triple quotes.
-
-## Creating strings
-
-Single and double quotes are equivalent. Triple quotes span multiple lines.
+Strings hold text. Quote them with single, double, or triple quotes. Single and double quotes are equivalent. Triple quotes span multiple lines.
 
 ```python
-s1 = 'this string is using single quotes'
-s2 = "this string is using double quotes"
+str1 = 'this string is using single quotes'
+str2 = "this string is using double quotes"
 
-s3 = '''
+str3 = '''
 this
 can also be
 a multi-line
 string when attached to a
 variable.
 '''
-print(s3)
 ```
 
 ## Indexing and length
@@ -25,9 +20,9 @@ print(s3)
 Index from `0` with `[]`; `len()` returns the character count.
 
 ```python
-s4 = 'abc'
-print(s4[1])  # b
-print(len(s4))  # 3
+str1 = 'abc'
+print(str1[1])    # b
+print(len(str1))  # 3
 ```
 
 ## Concatenation

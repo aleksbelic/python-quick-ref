@@ -17,3 +17,13 @@ else:
 
 !!! tip "Indentation matters"
     Branches are defined by indentation, not braces. Keep each block at a consistent indent level.
+
+## Indentation rules
+
+Indent 4 spaces after a colon to open a block, dedent to close it. Be consistent — mixing tabs and spaces raises an error.
+
+```python
+if True:
+    print('indented block runs')  # 4 spaces
+print('dedented, always runs')
+```

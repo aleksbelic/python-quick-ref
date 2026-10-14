@@ -71,3 +71,12 @@ sys.exit(0)  # stop program execution (quit() is REPL-only, use sys.exit() in sc
 
 !!! tip "quit() vs sys.exit()"
     `quit()` is a REPL helper. In scripts, always use `sys.exit()` with a status code (`0` for success).
+
+## Semicolons
+
+Lines do not end with a semicolon — a newline terminates the statement. A semicolon only joins multiple statements on one line, which is discouraged.
+
+```python
+x = 1  # no semicolon needed
+a = 1; b = 2  # valid but avoid: one statement per line
+```
