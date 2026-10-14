@@ -31,7 +31,7 @@ print(my_list)  # ['a', 'b', 'd', 'e', 'f']
 my_list.pop(3)  # removes the element at index 3 (which is 'e') from the list
 print(my_list)  # ['a', 'b', 'd', 'f']
 
-# DEL (same as POP)
+# DEL (like POP but returns nothing, deletes by index/slice)
 
 del my_list[1]  # removes the element at index 1 (which is 'b') from the list
 print(my_list)  # ['a', 'd', 'f']

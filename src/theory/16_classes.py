@@ -15,3 +15,16 @@ class Point2():
 
 p2 = Point2(7, 11)
 print(p2.y)  # 11
+
+
+print(p1.__class__)
+# <class '__main__.Point1'>
+
+print(type(p1))
+# <class '__main__.Point1'>
+
+print(type(p1).__name__)
+# Point1
+
+print(p1.__class__.__name__)
+# Point1
