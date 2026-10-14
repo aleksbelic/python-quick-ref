@@ -25,12 +25,13 @@ Python `3.11` or newer (required by Zensical).
 
 ## Development
 
-Set up the environment:
+Set up the environment (check yours is `3.11` or newer first):
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install .
+python3 --version           # check Python version
+python3 -m venv .venv       # create a virtual environment
+source .venv/bin/activate   # activate it
+pip install .               # install dependencies
 ```
 
 Serve the project for development:
@@ -49,10 +50,9 @@ zensical build --clean
 
 ## Quality checks
 
-The same checks run in CI on every pull request, and gate deployment on `main`:
+These run in CI on every push to `main`:
 
 ```
-python -m tools.check_snippets          # run every Python snippet in docs/
 zensical build --clean --strict         # fail on warnings and broken links
 ```
 
@@ -61,18 +61,14 @@ zensical build --clean --strict         # fail on warnings and broken links
 ```
 docs/               Markdown pages (the site content)
 docs/examples/      example programs and the testing chapter
-zensical.toml       site configuration: navigation, theme, redirects
+zensical.toml       site configuration: navigation, theme
 ```
 
 ## Writing docs
 
 - One topic per page; add it to `nav` in `zensical.toml` and to `docs/index.md`.
 - Keep the tone terse: a sentence of explanation, a short snippet, an optional `!!! tip` or `!!! warning "Gotcha: ..."` callout.
-- Python snippets in a page run top to bottom as one script, so later blocks can use earlier variables.
-- A block with a title (<code>```python title="my_math.py"</code>) is written to that path first — use it for modules, packages, and data files the page's other snippets need.
-- Put `<!-- no-run -->` on the line above a block that must not run (interactive entry points, placeholders). Put `<!-- check: skip -->` anywhere in a page to skip it entirely.
-- Example pages show code from `src/examples/`; `tests/test_docs_sync.py` fails if the two drift apart.
-- Renamed or moved a page? Add it to `[project.plugins.redirects.redirect_maps]` so old links keep working.
+- Keep snippets self-contained and paste-and-run: no external files, no stdin, no `sys.exit()`. If a snippet needs a fixture to run, say so in a `!!! note`.
 
 ## License
 

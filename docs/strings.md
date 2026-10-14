@@ -50,14 +50,14 @@ print('Hello' * 3)  # HelloHelloHello
 `split()`, `find()`, `count()`, `startswith()`, and `in` locate or break apart text.
 
 ```python
-print('a-b-c'.split('-'))  # ['a', 'b', 'c']
+print('a-b-c'.split('-')) # ['a', 'b', 'c']
 
-print('abc'.find('c'))  # 2
-print('abc'.find('C'))  # -1, not found
-print('banana'.count('an'))  # 2
+print('abc'.find('c'))                 # 2
+print('abc'.find('C'))                 # -1, not found
+print('banana'.count('an'))            # 2
 
-print('word' in 'This is a word')  # True
-print('report.csv'.endswith('.csv'))  # True
+print('word' in 'This is a word')      # True
+print('report.csv'.endswith('.csv'))   # True
 print('report.csv'.startswith('rep'))  # True
 ```
 
@@ -66,21 +66,21 @@ print('report.csv'.startswith('rep'))  # True
 Methods like `upper()`, `strip()`, and `replace()` return a new string.
 
 ```python
-print('abc'.capitalize())  # Abc
-print('abc'.upper())  # ABC
-print('ABC'.lower())  # abc
-print('abc'.replace('b', 'X'))  # aXc
-print('  padded  '.strip())  # padded
+print('abc'.capitalize())         # Abc
+print('abc'.upper())              # ABC
+print('ABC'.lower())              # abc
+print('abc'.replace('b', 'X'))    # aXc
+print('  padded  '.strip())       # padded
 print('-'.join(['a', 'b', 'c']))  # a-b-c
 ```
 
 ## Checking content
 
 ```python
-print('123'.isdigit())    # True
-print('abc'.isalpha())    # True
-print('abc123'.isalnum()) # True
-print('   '.isspace())    # True
+print('123'.isdigit())     # True
+print('abc'.isalpha())     # True
+print('abc123'.isalnum())  # True
+print('   '.isspace())     # True
 ```
 
 ## Escapes and raw strings

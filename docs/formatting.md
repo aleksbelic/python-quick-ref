@@ -39,8 +39,8 @@ print(f'[{"fill":*^10}]')  # [***fill***]
 
 for name, price in [('apple', 0.5), ('watermelon', 3.25)]:
     print(f'{name:<12}{price:>6.2f}')
-# apple          0.50
-# watermelon     3.25
+# apple         0.50
+# watermelon    3.25
 ```
 
 ## Debugging with =
