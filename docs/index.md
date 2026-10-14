@@ -1,6 +1,10 @@
 # Python Quick Reference
 
-Short, runnable lessons — one topic per page, in chapter order. Each page mirrors its source file under `src/theory/`.
+Short, runnable lessons — one topic per page, in chapter order.
+
+## Setup
+
+- [Virtual Env](virtual-env.md) — isolated environments and pip basics
 
 ## Chapters
 
@@ -26,10 +30,20 @@ Short, runnable lessons — one topic per page, in chapter order. Each page mirr
 - [Formatting](formatting.md) — f-strings and `format()`
 - [CSV](csv.md) — reading and writing CSV files
 - [RegExp](regexp.md) — searching and replacing with `re`
+- [Imports](imports.md) — importing from another file
+- [Packages](modules.md) — packages and import styles
 
 ## Extra
 
 - [Mutable vs Immutable](mutable-immutable.md) — what can change in place
 - [Extras](extras.md) — `pass`, `range`, identity, exiting scripts
-- [Imports](imports.md) — importing from another file
-- [Packages](modules.md) — packages and import styles
+
+## Practice
+
+- [Fibonacci](practice/fibonacci.md) — n-th Fibonacci number
+- [Palindrome](practice/palindrome.md) — palindrome check
+- [Prime Number](practice/prime-number.md) — primality test
+
+## Testing
+
+- [Testing](testing.md) — pytest suites for the practice examples

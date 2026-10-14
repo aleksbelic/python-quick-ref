@@ -3,6 +3,7 @@ site_name = "Python Quick Reference"
 copyright = "Built by <a href=\"https://abelic.com\" target=\"_blank\" rel=\"noopener\">Aleksanchez</a>"
 nav = [
   { "Home" = "index.md" },
+  { "Virtual Env" = "virtual-env.md" },
   { "Theory" = [
     { "Comments" = "comments.md" },
     { "Variables" = "variables.md" },
@@ -28,12 +29,15 @@ nav = [
     { "RegExp" = "regexp.md" },
     { "Mutable vs Immutable" = "mutable-immutable.md" },
     { "Extras" = "extras.md" },
-  ] },
-  { "Modules" = [
     { "Imports" = "imports.md" },
     { "Packages" = "modules.md" },
   ] },
-  { "Practice" = "practice.md" },
+  { "Practice" = [
+    { "Fibonacci" = "practice/fibonacci.md" },
+    { "Palindrome" = "practice/palindrome.md" },
+    { "Prime Number" = "practice/prime-number.md" },
+  ] },
+  { "Testing" = "testing.md" },
 ]
 
 [project.extra]
