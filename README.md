@@ -1,5 +1,20 @@
 # Python quick-reference
 
+## Development
+
+Serve the project for development:
+```bash
+zensical serve
+```
+
+Point your browser to `localhost:8000` for preview.
+
+Build the project for production:
+```bash
+zensical build
+```
+
+
 ### Virtual Environment (`VENV`)
 
 Set up a virtual environment in the project root.
@@ -58,7 +73,7 @@ _Note: Always activate your virtual environment before installing project depend
 
 Install package:
 
-```
+```localhost:8000 
 pip install <PACKAGE_NAME>
 ```
 
