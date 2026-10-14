@@ -1,4 +1,5 @@
 # Python Quick Reference
+[![Documentation](https://github.com/aleksbelic/python-quick-ref/actions/workflows/docs.yml/badge.svg)](https://github.com/aleksbelic/python-quick-ref/actions/workflows/docs.yml)
 
 A quick reference for Python programming language.
 
