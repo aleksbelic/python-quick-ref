@@ -4,7 +4,7 @@ Short, runnable lessons — one topic per page, in chapter order.
 
 ## Setup
 
-- [Python Installation](setup/python-installation.md) — installing Python 3.10+
+- [Python Installation](setup/python-installation.md) — installing Python 3.11+
 - [Virtual Env](setup/virtual-env.md) — isolated environments and pip basics
 
 ## Chapters

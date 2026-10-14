@@ -2,4 +2,7 @@
 /**/.pytest_cache/
 /.idea/
 /.venv/
+/.cache/
 /site/
+/build/
+/**.egg-info

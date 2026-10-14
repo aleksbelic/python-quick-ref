@@ -1,6 +1,6 @@
 # Python Installation
 
-You need Python 3.10 or newer for this project. Check what you have first:
+You need Python `3.11` or newer for this project (required by dependencies). Check what you have first:
 
 ```
 python3 --version
