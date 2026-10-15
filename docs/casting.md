@@ -61,7 +61,7 @@ print(to_int('abc'))  # None
 
 ```python
 my_bool = "True"
-print(type(my_bool))  # <class 'str'>
+print(type(my_bool))        # <class 'str'>
 print(type(bool(my_bool)))  # <class 'bool'>
 ```
 

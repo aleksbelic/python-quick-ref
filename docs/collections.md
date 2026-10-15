@@ -10,9 +10,9 @@ Counts hashable items. `most_common()` returns the top entries.
 from collections import Counter
 
 counts = Counter('mississippi')
-print(counts)  # Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
-print(counts['s'])  # 4
-print(counts['z'])  # 0, missing items count as zero
+print(counts)                 # Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
+print(counts['s'])            # 4
+print(counts['z'])            # 0, missing items count as zero
 print(counts.most_common(2))  # [('i', 4), ('s', 4)]
 ```
 
@@ -39,11 +39,11 @@ A double-ended queue with fast appends and pops at both ends. A list is slow at 
 from collections import deque
 
 queue = deque(['a', 'b', 'c'])
-queue.append('d')  # add right
-queue.appendleft('z')  # add left
+queue.append('d')       # add right
+queue.appendleft('z')   # add left
 print(queue.popleft())  # z
-print(queue.pop())  # d
-print(queue)  # deque(['a', 'b', 'c'])
+print(queue.pop())      # d
+print(queue)            # deque(['a', 'b', 'c'])
 
 last_three = deque(maxlen=3)  # drops the oldest item when full
 for n in range(6):
@@ -61,9 +61,9 @@ from collections import namedtuple
 Point = namedtuple('Point', ['x', 'y'])
 p = Point(3, 4)
 print(p.x, p.y)  # 3 4
-print(p)  # Point(x=3, y=4)
+print(p)         # Point(x=3, y=4)
 
-x, y = p  # still unpackable like a tuple
+x, y = p      # still unpackable like a tuple
 print(x + y)  # 7
 ```
 

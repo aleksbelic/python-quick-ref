@@ -80,7 +80,7 @@ class Dog(Animal):
 
 
 d = Dog('Rex', ['sit'])
-print(d.name, d.speak())  # Rex Woof
+print(d.name, d.speak())      # Rex Woof
 print(isinstance(d, Animal))  # True
 ```
 
@@ -143,17 +143,10 @@ Every object knows its class. Use `__class__`, `type()`, and `__name__` to inspe
 ```python
 p = Point(2, 5)
 
-print(p.__class__)
-# <class '__main__.Point'>
-
-print(type(p))
-# <class '__main__.Point'>
-
-print(type(p).__name__)
-# Point
-
-print(p.__class__.__name__)
-# Point
+print(p.__class__)          # <class '__main__.Point'>
+print(type(p))              # <class '__main__.Point'>
+print(type(p).__name__)     # Point
+print(p.__class__.__name__) # Point
 ```
 
 !!! warning "Gotcha: mutable class attributes are shared"
