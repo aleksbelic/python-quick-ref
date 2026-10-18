@@ -17,7 +17,6 @@ A quick reference for the Python programming language: short lessons — one top
 | Functions & OOP | functions, generators, decorators, classes, dunders, dataclasses, type hints |
 | I/O & Modules | input/output, formatting, files & `pathlib`, CSV, JSON, dates, regex, imports, CLI scripts, logging |
 | Cheat Sheet | built-ins, methods, format specs, exceptions |
-| Examples | Fibonacci, palindrome, primes, word counter, CSV summary, file renamer |
 
 ## Requirements
 
@@ -52,7 +51,6 @@ zensical build --clean --strict  # fail on warnings and broken links
 
 ```
 docs/               Markdown pages (the site content)
-docs/examples/      example programs and the testing chapter
 zensical.toml       site configuration: navigation, theme
 ```
 

@@ -15,15 +15,18 @@ nav = [
     { "Tooling" = "setup/tooling.md" },
   ] },
   { "Basics" = [
+    { "How Python Works" = "how-python-works.md" },
     { "Syntax Basics" = "syntax.md" },
     { "Variables" = "variables.md" },
     { "Data Types" = "data-types.md" },
+    { "Numbers" = "numbers.md" },
     { "Casting" = "casting.md" },
     { "Operators" = "operators.md" },
     { "Conditions" = "conditions.md" },
   ] },
   { "Data Structures" = [
     { "Strings" = "strings.md" },
+    { "Text & Encoding" = "unicode.md" },
     { "Lists" = "lists.md" },
     { "Tuples" = "tuples.md" },
     { "Sets" = "sets.md" },
@@ -31,16 +34,21 @@ nav = [
     { "Comprehensions" = "comprehensions.md" },
     { "Collections" = "collections.md" },
     { "Mutable vs Immutable" = "mutable-immutable.md" },
+    { "Complexity & Patterns" = "complexity.md" },
   ] },
   { "Control Flow" = [
     { "Loops" = "loops.md" },
+    { "Iterators" = "iterators.md" },
     { "Try–Except" = "try-except.md" },
+    { "Context Managers" = "context-managers.md" },
   ] },
   { "Functions & OOP" = [
     { "Functions" = "functions.md" },
+    { "Scope & Closures" = "scope-closures.md" },
     { "Generators" = "generators.md" },
     { "Decorators" = "decorators.md" },
     { "Classes" = "classes.md" },
+    { "OOP Concepts" = "oop-concepts.md" },
     { "Dunders" = "dunders.md" },
     { "Dataclasses" = "dataclasses.md" },
     { "Type Hints" = "type-hints.md" },
@@ -57,16 +65,12 @@ nav = [
     { "Scripts & CLI" = "scripts.md" },
     { "Logging" = "logging.md" },
   ] },
-  { "Cheat Sheet" = "cheatsheet.md" },
-  { "Examples" = [
-    { "Fibonacci" = "examples/fibonacci.md" },
-    { "Palindrome" = "examples/palindrome.md" },
-    { "Prime Number" = "examples/prime-number.md" },
-    { "Word Counter" = "examples/word-counter.md" },
-    { "CSV Summary" = "examples/csv-summary.md" },
-    { "File Renamer" = "examples/file-renamer.md" },
-    { "Testing" = "examples/testing.md" },
+  { "Going Further" = [
+    { "Concurrency" = "concurrency.md" },
+    { "Testing" = "testing.md" },
+    { "What's New (3.10–3.15)" = "modern-python.md" },
   ] },
+  { "Cheat Sheet" = "cheatsheet.md" },
 ]
 
 [project.extra]
