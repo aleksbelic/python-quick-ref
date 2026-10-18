@@ -144,6 +144,22 @@ print(l2 == l3)  # True, same content
 print(l2 is l3)  # False, different objects
 ```
 
+## Gotcha: repeating a list of lists
+
+`*` repeats *references*, so `[[0] * 3] * 3` is three names for one inner list.
+
+```python
+grid = [[0] * 3] * 3
+grid[0][0] = 1
+print(grid)  # [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+grid = [[0] * 3 for _ in range(3)]  # three separate rows
+```
+
+## How lists work
+
+A list is a dynamic array of references. Indexing and `append()` are fast; inserting or removing near the front, and searching with `in`, must walk the list. See [Complexity](complexity.md).
+
 ## Joining items
 
 `join()` concatenates string elements with a separator.
