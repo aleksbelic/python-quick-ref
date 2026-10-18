@@ -60,6 +60,26 @@ defaults.update(user)
 print(defaults)  # {'theme': 'dark', 'lang': 'en'}
 ```
 
+## setdefault and fromkeys
+
+`setdefault(key, default)` returns the existing value, or inserts `default` and returns it. `dict.fromkeys(keys, value)` builds a dict with one shared value.
+
+```python
+groups = {}
+groups.setdefault('a', []).append(1)
+groups.setdefault('a', []).append(2)
+print(groups)  # {'a': [1, 2]}
+
+print(dict.fromkeys(['x', 'y'], 0))  # {'x': 0, 'y': 0}
+```
+
+!!! warning "Gotcha: `fromkeys` shares one value"
+    `dict.fromkeys(keys, [])` puts the *same* list under every key. Use a comprehension (`{k: [] for k in keys}`) for per-key mutable values.
+
+## How dictionaries work
+
+A dict is a hash table: a key's `hash()` locates its slot, so lookups, inserts, and deletes are O(1) on average. Keys must be hashable and are compared with `==`. Since Python 3.7 the language guarantees insertion order. In-place merging is `d |= other`. Python 3.15 adds an immutable, hashable `frozendict` — see [What's New](modern-python.md).
+
 ## Looping through keys
 
 Iterating the dict directly yields keys; `.keys()` is equivalent.

@@ -17,6 +17,10 @@ Dense lookup tables. Follow the links for explanations and examples.
 | `map(f, x)`, `filter(f, x)` | lazy transform / filter |
 | `abs(n)`, `round(n, d)`, `divmod(a, b)` | numeric helpers |
 | `isinstance(x, T)`, `type(x)` | inspect types |
+| `iter(x)`, `next(it, default)` | get an iterator / advance it ([Iterators](iterators.md)) |
+| `ord(c)`, `chr(n)` | character ↔ code point ([Text & Encoding](unicode.md)) |
+| `id(x)`, `hash(x)` | identity / hash value |
+| `getattr(o, name, default)`, `hasattr(o, name)` | dynamic attribute access |
 | `int()`, `float()`, `str()`, `bool()`, `list()`, `tuple()`, `set()`, `dict()` | construct / convert |
 | `open()`, `print()`, `input()` | I/O |
 | `help(x)`, `dir(x)` | explore objects in the REPL |
@@ -62,7 +66,7 @@ See [Dictionaries](dictionaries.md).
 | `d[k] = v` | add or change |
 | `d.pop(k, default)`, `del d[k]` | remove |
 | `d.setdefault(k, default)` | get, inserting `default` if missing |
-| `d.update(other)`, `d \| other` | merge |
+| `d.update(other)`, `d | other` | merge |
 | `d.keys()`, `d.values()`, `d.items()` | views for looping |
 | `k in d` | key membership |
 
@@ -72,7 +76,7 @@ See [Sets](sets.md).
 
 | Expression | Meaning |
 | --- | --- |
-| `a \| b` | union |
+| `a | b` | union |
 | `a & b` | intersection |
 | `a - b` | in `a` but not in `b` |
 | `a ^ b` | in exactly one |
@@ -109,6 +113,27 @@ See [Try–Except](try-except.md).
 | `ZeroDivisionError` | division by zero |
 | `ImportError` | module or name can't be imported |
 | `StopIteration` | iterator is exhausted |
+| `RecursionError` | recursion went too deep |
+| `UnicodeDecodeError` | bytes don't match the encoding ([Text & Encoding](unicode.md)) |
+| `UnboundLocalError` | local name used before assignment ([Scope](scope-closures.md)) |
+
+## Operator precedence (high → low)
+
+`**`, unary `-x ~x`, `* / // %`, `+ -`, `<< >>`, `&`, `^`, `|`, comparisons / `in` / `is`, `not`, `and`, `or`, conditional expression. Full table: [Operators](operators.md#operator-precedence).
+
+## Scope lookup (LEGB)
+
+**L**ocal → **E**nclosing function → **G**lobal (module) → **B**uilt-in. `global x` and `nonlocal x` let a function rebind an outer name. See [Scope & Closures](scope-closures.md).
+
+## Complexity at a glance
+
+| Operation | Cost |
+| --- | --- |
+| `list[i]`, `list.append(x)`, `dict[k]`, `x in set` | O(1) |
+| `x in list`, `list.insert(0, x)`, `list.pop(0)` | O(n) |
+| `sorted(x)` | O(n log n) |
+
+See [Complexity & Patterns](complexity.md).
 
 ## Truthy and falsy
 
@@ -121,8 +146,13 @@ Falsy: `False`, `None`, `0`, `0.0`, `''`, `[]`, `()`, `{}`, `set()`. Everything 
 | f-strings | 3.6 |
 | walrus operator `:=` | 3.8 |
 | `f'{x=}'` debugging | 3.8 |
-| `list[int]`, `dict \| dict` | 3.9 |
-| `match` statement, `X \| Y` types | 3.10 |
+| `list[int]`, `dict | dict` | 3.9 |
+| `match` statement, `X | Y` types | 3.10 |
 | `dataclass(slots=True)` | 3.10 |
-| `tomllib` | 3.11 |
-| `type` alias statement | 3.12 |
+| `ExceptionGroup`, `except*`, `tomllib`, `Self` | 3.11 |
+| `type` alias statement, `def f[T]()`, `itertools.batched` | 3.12 |
+| free-threaded build (experimental), new REPL | 3.13 |
+| t-strings, lazy annotations, `except A, B:` | 3.14 |
+| `lazy import`, `frozendict`, `sentinel`, UTF-8 default, `[*x for x in xs]` | 3.15 |
+
+More detail in [What's New](modern-python.md).

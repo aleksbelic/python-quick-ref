@@ -59,6 +59,10 @@ unique = list(set(numbers))
 print(sorted(unique))  # [1, 2, 3]
 ```
 
+## Why sets are fast
+
+Sets are hash tables: each element's `hash()` decides where it is stored, so membership tests jump straight to the right slot. That is also why elements must be hashable — see [Mutable vs Immutable](mutable-immutable.md#hashability-what-can-be-a-key) and [Complexity](complexity.md).
+
 ## frozenset
 
 An immutable set — hashable, so it can be a dict key or a member of another set.

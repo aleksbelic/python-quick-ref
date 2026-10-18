@@ -88,6 +88,57 @@ except InsufficientFundsError as error:
     print(error)  # need 15 more
 ```
 
+## Exception hierarchy
+
+Exceptions form a class tree, and `except` matches a class *and all its subclasses*. That is why order matters: put specific handlers before general ones.
+
+```text
+BaseException
+├── KeyboardInterrupt, SystemExit, GeneratorExit
+└── Exception
+    ├── ArithmeticError  (ZeroDivisionError, OverflowError)
+    ├── LookupError      (KeyError, IndexError)
+    ├── OSError          (FileNotFoundError, PermissionError, ...)
+    ├── ValueError       (UnicodeError, json.JSONDecodeError)
+    ├── TypeError, AttributeError, NameError, ImportError, ...
+    └── RuntimeError     (RecursionError, NotImplementedError)
+```
+
+Catching `Exception` leaves `KeyboardInterrupt` and `SystemExit` alone, which is why it is a safer "catch-all" than a bare `except:`. Custom exceptions should inherit from `Exception` (or a more specific class).
+
+## Exception chaining
+
+Raising inside an `except` block links the new error to the old one automatically (`__context__`). Use `raise ... from ...` to say "this was *caused by* that", or `from None` to hide the original.
+
+```python
+def load_port(text):
+    try:
+        return int(text)
+    except ValueError as error:
+        raise RuntimeError(f'bad port setting: {text!r}') from error
+```
+
+The traceback then shows both errors, which makes the real cause visible. `error.add_note('...')` (3.11+) attaches extra context to an exception without changing its type.
+
+## Exception groups and `except*`
+
+Available since Python 3.11. Concurrent code can fail in several ways at once. An `ExceptionGroup` bundles multiple exceptions, and `except*` handles each kind separately. You will meet them mostly through [`asyncio.TaskGroup`](concurrency.md).
+
+```python
+try:
+    raise ExceptionGroup('batch', [ValueError('a'), TypeError('b')])
+except* ValueError as group:
+    print('values:', group.exceptions)
+except* TypeError as group:
+    print('types:', group.exceptions)
+```
+
+Python 3.14 also allows listing several exception types without parentheses when there is no `as` (`except ValueError, TypeError:`). Parentheses remain valid and are clearer for beginners.
+
+## Assertions
+
+`assert condition, message` raises `AssertionError` when the condition is false. Use it for *programmer errors* ("this can never happen"), not for validating user input, because assertions are removed when Python runs with `-O`.
+
 ## Common exceptions
 
 | Exception | Typical cause |
@@ -104,4 +155,7 @@ except InsufficientFundsError as error:
     A bare `except:` catches everything, including `KeyboardInterrupt`. Prefer `except TypeError:` — or at least `except Exception:` — so unexpected bugs still surface.
 
 !!! tip "Ask forgiveness, not permission"
-    Python style (EAFP) prefers trying the operation and handling the error over checking every precondition first: `try: value = d[key]` rather than `if key in d: ...`.
+    Python style (EAFP: "easier to ask forgiveness than permission") prefers trying the operation and handling the error over checking every precondition first: `try: value = d[key]` rather than `if key in d: ...`. The opposite style is LBYL ("look before you leap"). EAFP avoids race conditions (a file can vanish between your check and your `open()`) and reads naturally when failure is the exception rather than the rule.
+
+!!! tip "Keep the `try` block small"
+    Wrap only the line that can raise the error you expect. A large `try` body can swallow an unrelated bug and report it as the wrong problem.

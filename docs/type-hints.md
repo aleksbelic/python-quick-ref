@@ -83,6 +83,24 @@ print(distance_from_origin((3, 4)))  # 5.0
 !!! tip "Python 3.12+: the `type` statement"
     Newer Python can declare aliases with `type Coordinates = tuple[float, float]`.
 
+## Other useful tools
+
+A few more tools from `typing`, so you recognise them when you meet them:
+
+| Tool | Meaning |
+| --- | --- |
+| `Literal['r', 'w']` | only these exact values |
+| `TypedDict` | a dict with a fixed set of named keys |
+| `Protocol` | "anything with these methods", structural typing (see [OOP Concepts](oop-concepts.md#abstract-classes-and-protocols)) |
+| `TypeVar` / `def f[T](x: T) -> T` | generic functions that keep the type (the bracket syntax is 3.12+) |
+| `Final` | this name should never be reassigned |
+| `Self` | the instance's own class (3.11+) |
+
+`Optional[X]` is the older spelling of `X | None`; you will see it in existing code.
+
+!!! tip "Python 3.14: annotations are evaluated lazily"
+    Before 3.14, an annotation was evaluated when the function or class was defined, so referring to a class defined *later* needed quotes (`'Node'`). From 3.14 annotations are evaluated only when something asks for them, so forward references just work. Type checkers behave the same either way.
+
 ## Checking your hints
 
 Hints are not enforced when the program runs:

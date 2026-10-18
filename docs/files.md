@@ -96,4 +96,4 @@ except FileNotFoundError:
     Opening an existing file with `'w'` truncates it immediately — even if your code later fails. Use `'x'` to refuse to overwrite, or `'a'` to add.
 
 !!! tip "Always pass `encoding='utf-8'`"
-    Without it, Python uses the platform default (which differs between Windows and Linux/macOS) and non-ASCII text can break.
+    Before Python 3.15, omitting `encoding` meant "the platform default", which differs between Windows and Linux/macOS, so non-ASCII text could break on someone else's machine. Python 3.15 made UTF-8 the default everywhere, but code that must run on older versions should still be explicit. Background: [Text & Encoding](unicode.md).

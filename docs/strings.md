@@ -83,14 +83,28 @@ print('abc123'.isalnum())  # True
 print('   '.isspace())     # True
 ```
 
-## Escapes and raw strings
+## Removing prefixes and suffixes
 
-A backslash starts an escape sequence, e.g.: `\\` backslash, `\'` and `\"` quotes, `\n` newline, `\r` carriage return, `\t` tab, `\b` backspace, `\xhh` and `\uhhhh` Unicode by code point. A raw string (`r'...'`) keeps backslashes as they are — handy for Windows paths and [regular expressions](regexp.md).
+`removeprefix()` and `removesuffix()` (3.9+) drop an exact prefix or suffix. Unlike `strip()`, which takes a *set of characters*, they match the whole text.
 
 ```python
-print('line1\nline2')   # prints 'line1' and 'line2 in separate lines
+print('test_data.csv'.removeprefix('test_'))  # data.csv
+print('report.csv'.removesuffix('.csv'))      # report
+print('xxhixx'.strip('x'))                    # hi
+```
+
+## Text is Unicode
+
+A `str` is a sequence of Unicode code points, not bytes. `len()` counts code points, which is not always what a reader sees as a "character". Encoding, bytes, and normalization are covered in [Text & Encoding](unicode.md).
+
+## Escapes and raw strings
+
+A backslash starts an escape sequence such as `\n` (newline) or `\t` (tab). Common ones: `\\` backslash, `\'` and `\"` quotes, `\n` newline, `\r` carriage return, `\t` tab, `\b` backspace, `\xhh` and `\uhhhh` Unicode by code point. A raw string (`r'...'`) keeps backslashes as they are — handy for Windows paths and [regular expressions](regexp.md).
+
+```python
+print('line1\nline2')   # two lines
 print('It\'s')          # It's
-print('\\')             # \
+print('backslash: \\')  # backslash: \
 print(r'C:\new\table')  # C:\new\table
 ```
 

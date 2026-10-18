@@ -85,7 +85,10 @@ print('{greeting}, {who}!'.format(greeting='Hello', who='world'))  # Hello, worl
 ```
 
 !!! tip "f-strings vs format()"
-    Prefer f-strings for readability. Use `format()` when the template string comes from elsewhere (config, file, user input) — never pass untrusted text to an f-string via `eval`.
+    Prefer f-strings for readability. An f-string is code, fixed when you write it, so it cannot take its template from a variable. Use `format()` (or `string.Template`) when the template text is data that lives elsewhere, such as a config file.
+
+!!! warning "Gotcha: don't use untrusted text as a `format()` template"
+    A format template can reach into objects: `'{0.__class__}'.format(obj)` reads an attribute. If a user controls the template, they can probe your objects for sensitive values. Treat templates as trusted input, and pass untrusted text only as an *argument*. Never `eval()` untrusted text to build an f-string.
 
 !!! tip "Format spec cheat sheet"
     The full spec is `[[fill]align][sign][width][,][.precision][type]`, e.g. `{value:*>10,.2f}`. See the [Cheat Sheet](cheatsheet.md#format-specs).

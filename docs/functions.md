@@ -72,6 +72,22 @@ print(greet('Aleks'))  # Hello, Aleks!
     print(good(2))  # [2]
     ```
 
+## Parameter kinds
+
+A signature can mix four kinds of parameters, in this order: positional-only (before `/`), normal, keyword-only (after `*`), and the collectors `*args` / `**kwargs`.
+
+```python
+def example(a, /, b, *, c):
+    return a, b, c
+
+
+print(example(1, 2, c=3))    # (1, 2, 3)
+print(example(1, b=2, c=3))  # (1, 2, 3)
+# example(a=1, b=2, c=3)     # TypeError: `a` is positional-only
+```
+
+Arguments are matched to parameters *by assignment*, exactly like `name = value`. That is why the mutable-default and aliasing rules from [Mutable vs Immutable](mutable-immutable.md) apply to function calls too.
+
 ## Keyword arguments
 
 Pass arguments by name in any order. Everything after a bare `*` must be passed by keyword, which makes call sites self-documenting.
@@ -116,7 +132,7 @@ print(area(2, 3.5))  # 7.0
 
 ## Scope
 
-Names assigned inside a function are local to it. A function can *read* module-level names, but assigning to one creates a new local variable instead of changing the global.
+Names assigned inside a function are local to it. A function can *read* module-level names, but assigning to one creates a new local variable instead of changing the global. The full lookup rules (LEGB), `nonlocal`, and closures have their own page: [Scope & Closures](scope-closures.md).
 
 ```python
 x = 'global'
@@ -133,6 +149,20 @@ print(x)  # global
 
 !!! tip "Avoid `global`"
     The `global` keyword lets a function rebind a module-level name, but it makes code hard to follow. Pass values in as arguments and return results instead.
+
+## Recursion
+
+A function may call itself. Every recursive function needs a **base case** (stops the recursion) and a **recursive case** that moves toward it. Each call adds a frame to the call stack, and Python caps the depth (about 1000 by default, see `sys.getrecursionlimit()`) and raises `RecursionError` beyond it. Python does not optimise tail calls, so deep recursion is usually better written as a loop. For overlapping subproblems, caching (`functools.cache`) avoids repeated work — see [Complexity & Patterns](complexity.md).
+
+```python
+def factorial(n):
+    if n <= 1:          # base case
+        return 1
+    return n * factorial(n - 1)  # recursive case
+
+
+print(factorial(5))  # 120
+```
 
 ## Lambdas
 

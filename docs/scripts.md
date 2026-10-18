@@ -2,11 +2,10 @@
 
 Turn code into a program you run from the terminal: an entry point, command-line arguments, and exit codes.
 
-## The __main__ guard
+## The `__main__` guard
 
 A file can be both imported and run. Code under `if __name__ == '__main__':` runs only when the file is executed directly, not when it is imported.
 
-<!-- no-run -->
 ```python
 def main():
     print('running as a script')
@@ -66,13 +65,14 @@ From a terminal that would be `python greet.py Aleks --times 2 --shout`.
 
 A program reports success or failure to the shell through its exit code: `0` means success, anything else means failure. Use `sys.exit()` to stop with a code.
 
-<!-- no-run -->
 ```python
 import sys
 
 if __name__ == '__main__':
     sys.exit(main())  # 0 on success; a non-zero return value signals failure
 ```
+
+`sys.exit('message')` prints the message to stderr and exits with code `1`. It works by raising `SystemExit`, so `finally` blocks and [context managers](context-managers.md) still run on the way out.
 
 !!! tip "quit() vs sys.exit()"
     `quit()` and `exit()` are REPL helpers. In scripts, always use `sys.exit()` with a status code (`0` for success).

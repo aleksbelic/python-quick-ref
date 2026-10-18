@@ -1,6 +1,6 @@
 # Generators
 
-A generator produces values one at a time, on demand, instead of building a whole collection in memory.
+A generator produces values one at a time, on demand, instead of building a whole collection in memory. Generators are the easiest way to write an *iterator* — read [Iterators](iterators.md) first if "iterable" and "iterator" feel blurry.
 
 ## yield
 
@@ -83,6 +83,10 @@ def non_empty_lines(lines):
 
 print(list(non_empty_lines(['a\n', '\n', 'b\n'])))  # ['a', 'b']
 ```
+
+## Two-way generators
+
+A generator can also *receive* values with `.send()`, be stopped early with `.close()`, and hand back a final result through `return` (carried in `StopIteration.value`). These are the building blocks that older asynchronous code was based on; today you will rarely write them by hand, but they explain why `yield` is an expression.
 
 !!! tip "Generator or list?"
     Use a generator when you iterate once, or the data is large or infinite. Use a list when you need `len()`, indexing, or several passes.

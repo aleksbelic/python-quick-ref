@@ -9,7 +9,10 @@ Mutable objects can be changed in place. Immutable objects cannot — operations
 | `list` | `str` |
 | `set` | `tuple` |
 | `dict` | `frozenset` |
-| most custom classes | `int`, `float`, `bool`, `bytes`, `None` |
+| `bytearray` | `bytes`, `range` |
+| most custom classes | `int`, `float`, `bool`, `complex`, `None` |
+
+Python 3.15 adds a built-in immutable mapping, `frozendict` — see [What's New](modern-python.md).
 
 ## Names are references
 
@@ -76,5 +79,18 @@ print(data)  # ['a', 'x']
 !!! warning "Gotcha: mutable default arguments"
     A default value is created once, when the function is defined — so a mutable default is shared between calls. See [Functions](functions.md#default-values).
 
+## Hashability: what can be a key
+
+Dict keys and set members must be **hashable**: they have a `hash()` value that never changes during their lifetime, and equal objects have equal hashes. The hash is what lets a dict or set jump straight to the right slot instead of scanning (see [Complexity](complexity.md)).
+
+Immutable *and* hashable are not the same thing. A tuple is hashable only if everything inside it is.
+
+```python
+print(hash((1, 2)))      # works
+# hash((1, [2]))         # TypeError: unhashable type: 'list'
+```
+
+A custom class is hashable by default (hash from identity), until you define `__eq__` without `__hash__` — see [Dunders](dunders.md).
+
 !!! tip "Why it matters"
-    Assignment of a mutable object copies the reference, not the data — mutating one name affects the other. Use `.copy()` or `deepcopy()` when you need independence. Only immutable objects can be dict keys or set members.
+    Assignment of a mutable object copies the reference, not the data — mutating one name affects the other. Use `.copy()` or `deepcopy()` when you need independence. Dict keys and set members must be hashable, which in practice means immutable.

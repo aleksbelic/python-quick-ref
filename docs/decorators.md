@@ -1,6 +1,6 @@
 # Decorators
 
-A decorator wraps a function to add behaviour — logging, timing, caching, access checks — without changing the function's own code.
+A decorator wraps a function to add behaviour — logging, timing, caching, access checks — without changing the function's own code. It relies on two ideas covered elsewhere: functions are objects ([Functions](functions.md#functions-are-objects)) and inner functions remember the variables around them ([Scope & Closures](scope-closures.md)).
 
 ## The idea
 
@@ -63,6 +63,7 @@ def repeat(times):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
+            result = None  # defined up front, so repeat(0) doesn't crash
             for _ in range(times):
                 result = func(*args, **kwargs)
             return result

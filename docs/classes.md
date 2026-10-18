@@ -16,7 +16,7 @@ p = Point()
 print(p.x)  # 5
 ```
 
-## Constructor with __init__
+## Constructor with `__init__`
 
 `__init__` runs when an instance is created. Use `self` to store per-instance data.
 
@@ -143,11 +143,33 @@ Every object knows its class. Use `__class__`, `type()`, and `__name__` to inspe
 ```python
 p = Point(2, 5)
 
-print(p.__class__)          # <class '__main__.Point'>
-print(type(p))              # <class '__main__.Point'>
-print(type(p).__name__)     # Point
-print(p.__class__.__name__) # Point
+print(p.__class__)
+# <class '__main__.Point'>
+
+print(type(p))
+# <class '__main__.Point'>
+
+print(type(p).__name__)
+# Point
+
+print(p.__class__.__name__)
+# Point
 ```
+
+## Attribute lookup
+
+Reading `obj.name` searches the *instance* first, then its class, then the parent classes (in [MRO](oop-concepts.md#method-resolution-order) order). Assigning `obj.name = ...` always writes to the instance, so it *shadows* a class attribute rather than changing it.
+
+```python
+class Counter:
+    step = 1          # class attribute
+
+c = Counter()
+c.step = 10           # creates an instance attribute
+print(Counter.step, c.step)  # 1 10
+```
+
+Instance data lives in `c.__dict__`; shared data lives in `Counter.__dict__`.
 
 !!! warning "Gotcha: mutable class attributes are shared"
     A list or dict defined in the class body is shared by every instance. Create it in `__init__` instead.
@@ -167,5 +189,5 @@ print(p.__class__.__name__) # Point
     print(b.items)  # [1], surprise!
     ```
 
-!!! tip "Less boilerplate"
-    For classes that mostly hold data, see [Dataclasses](dataclasses.md). To customise printing, comparison, and operators, see [Dunders](dunders.md).
+!!! tip "Where next"
+    Design ideas — composition vs inheritance, multiple inheritance, abstract classes, "private" attributes — are in [OOP Concepts](oop-concepts.md). For classes that mostly hold data, see [Dataclasses](dataclasses.md). To customise printing, comparison, and operators, see [Dunders](dunders.md).

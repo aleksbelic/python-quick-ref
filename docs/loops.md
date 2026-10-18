@@ -4,7 +4,7 @@ Repeat a block of code. Use `for` to iterate over a known sequence and `while` t
 
 ## For loop
 
-Iterates over any iterable object — strings, lists, tuples, sets, dictionaries, or `range()`.
+Iterates over any iterable object — strings, lists, tuples, sets, dictionaries, or `range()`. How this works under the hood is explained in [Iterators](iterators.md).
 
 ```python
 for x in 'abc':
@@ -69,11 +69,12 @@ while i <= 100:
 
 ## Loop until valid
 
-A `while True` loop with `break` is the standard way to retry until something works.
+A `while True` loop with `break` is the standard way to retry until something works. Here `next()` on an iterator stands in for `input()`; see [Input & Output](input.md) for the real thing.
 
 ```python
-attempts = ['abc', '', '42']  # pretend these come from input()
-for text in attempts:
+answers = iter(['abc', '', '42'])  # stand-in for input()
+while True:
+    text = next(answers)
     if text.isdigit():
         print('Got a number:', text)
         break

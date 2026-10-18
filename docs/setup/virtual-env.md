@@ -19,18 +19,14 @@ On `Linux`:
 python3 -m venv .venv
 ```
 
-For example, `.venv` is a conventional folder name:
+`.venv` is a conventional folder name. The command creates a `.venv` folder containing a copy of (or link to) the interpreter and a private place for installed packages.
+
+On macOS, use the same command as on Linux.
+
+Once the environment is [activated](#activating-it), upgrade pip inside it (it often lags behind):
 
 ```bash
-python3 -m venv .venv
-```
-
-This creates a `.venv` folder containing the virtual environment and its installed packages.
-
-Upgrade pip inside the fresh environment (it often lags behind):
-
-```bash
-.venv/bin/python -m pip install --upgrade pip
+python -m pip install --upgrade pip
 ```
 
 !!! tip "Prefer `python -m pip` over bare `pip`"
@@ -66,7 +62,7 @@ A `(.venv)` prefix will appear in the terminal for every following command.
 
 ## Deactivating it
 
-From the project root:
+Works from any folder; it only affects the current terminal session:
 
 ```
 deactivate
