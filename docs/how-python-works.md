@@ -4,7 +4,7 @@ A mental model of what happens between typing code and seeing a result. Almost e
 
 ## From source to execution
 
-Python is both compiled and interpreted. When you run a program, the reference implementation (**CPython**) does two things:
+Python is both _compiled_ and _interpreted_. When you run a program, the reference implementation (**CPython**) does two things:
 
 1. **Compile** your source into *bytecode*: a compact, low-level instruction list for a virtual machine. Bytecode of imported modules is cached in `__pycache__/*.pyc` so the next import is faster.
 2. **Interpret** that bytecode: the Python virtual machine executes the instructions one by one.

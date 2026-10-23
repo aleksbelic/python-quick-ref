@@ -1,14 +1,13 @@
 # Python Quick Reference
 
-Short lessons grouped by theme. The focus is on *understanding*: what each feature is, why Python works that way, and which traps to avoid. Short snippets illustrate the ideas; the expected output is shown in comments, so you can follow along without running anything.
+- Short lessons grouped by theme.
+- Short code snippets illustrate the ideas; the expected output is shown in comments, so you can follow along without running code yourself.
 
 ## How to use this site
 
 - **Learning from scratch?** Read the sections top to bottom: Setup → Basics → Data Structures → Control Flow → Functions & OOP → I/O & Modules → Going Further.
 - **Looking something up?** Use the search box, or jump straight to the [Cheat Sheet](cheatsheet.md).
 - **Want to see it all together?** [Complexity & Patterns](complexity.md) shows how classic small problems (Fibonacci, primes, palindromes, word counts) turn into reusable ideas.
-
-Look out for the callouts: **tip** boxes add a useful habit, **gotcha** boxes warn about a classic trap. Notes like "3.10+" mark features that need a newer Python.
 
 ## Setup
 

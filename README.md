@@ -16,6 +16,7 @@ A quick reference for the Python programming language: short lessons — one top
 | Control Flow | loops, try/except |
 | Functions & OOP | functions, generators, decorators, classes, dunders, dataclasses, type hints |
 | I/O & Modules | input/output, formatting, files & `pathlib`, CSV, JSON, dates, regex, imports, CLI scripts, logging |
+| Going Further | concurrency, testing, what's new in Python 3.10–3.15 |
 | Cheat Sheet | built-ins, methods, format specs, exceptions |
 
 ## Requirements
@@ -50,8 +51,10 @@ zensical build --clean --strict  # fail on warnings and broken links
 ## Project layout
 
 ```
-docs/               Markdown pages (the site content)
-zensical.toml       site configuration: navigation, theme
+docs/                     Markdown pages (the site content)
+zensical.toml             site configuration: navigation, theme
+pyproject.toml            project metadata and the zensical dependency
+.github/workflows/        CI: builds and deploys the site to GitHub Pages
 ```
 
 ## Writing docs

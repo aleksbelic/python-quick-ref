@@ -144,17 +144,16 @@ print(l2 == l3)  # True, same content
 print(l2 is l3)  # False, different objects
 ```
 
-## Gotcha: repeating a list of lists
+!!! warning "Gotcha: repeating a list of lists"
+    `*` repeats *references*, so `[[0] * 3] * 3` is three names for one inner list.
 
-`*` repeats *references*, so `[[0] * 3] * 3` is three names for one inner list.
+    ```python
+    grid = [[0] * 3] * 3
+    grid[0][0] = 1
+    print(grid)  # [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
 
-```python
-grid = [[0] * 3] * 3
-grid[0][0] = 1
-print(grid)  # [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
-
-grid = [[0] * 3 for _ in range(3)]  # three separate rows
-```
+    grid = [[0] * 3 for _ in range(3)]  # three separate rows
+    ```
 
 ## How lists work
 

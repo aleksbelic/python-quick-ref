@@ -119,7 +119,7 @@ See [Try–Except](try-except.md).
 
 ## Operator precedence (high → low)
 
-`**`, unary `-x ~x`, `* / // %`, `+ -`, `<< >>`, `&`, `^`, `|`, comparisons / `in` / `is`, `not`, `and`, `or`, conditional expression. Full table: [Operators](operators.md#operator-precedence).
+`**`, unary `-x ~x`, `* / // %`, `+ -`, `<< >>`, `&`, `^`, `|`, comparisons / `in` / `is`, `not`, `and`, `or`, `lambda`, conditional expression, `:=`. Full table: [Operators](operators.md#operator-precedence).
 
 ## Scope lookup (LEGB)
 
@@ -129,7 +129,8 @@ See [Try–Except](try-except.md).
 
 | Operation | Cost |
 | --- | --- |
-| `list[i]`, `list.append(x)`, `dict[k]`, `x in set` | O(1) |
+| `list[i]`, `dict[k]`, `x in set` | O(1) |
+| `list.append(x)` | O(1) amortized |
 | `x in list`, `list.insert(0, x)`, `list.pop(0)` | O(n) |
 | `sorted(x)` | O(n log n) |
 
