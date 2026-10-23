@@ -104,7 +104,8 @@ When an expression mixes operators, higher rows bind tighter. When in doubt, add
 | 9 | comparisons, `in`, `is` (all equal, and chainable) |
 | 10 | `not` |
 | 11 | `and`, then `or` |
-| 12 | `x if c else y`, `lambda`, `:=` |
+| 12 | `lambda`, then `x if c else y` |
+| 13 | `:=` (walrus) — needs parentheses: `if (n := len(x)) > 2:` |
 
 !!! warning "Gotcha: `-2 ** 2` is `-4`"
     `**` binds tighter than unary minus, so this means `-(2 ** 2)`. Write `(-2) ** 2` for `4`.

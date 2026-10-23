@@ -1,10 +1,15 @@
 # Tooling
 
-The small set of tools most Python projects use day to day: a project manager, a linter/formatter, a type checker, and a test runner.
+The small set of tools most Python projects use day to day:
+
+- project manager
+- linter/formatter
+- type checker
+- test runner
 
 ## uv
 
-[uv](https://docs.astral.sh/uv/) is a fast, all-in-one replacement for `pip`, `venv`, and `pip-tools`. It also installs Python itself.
+[uv](https://docs.astral.sh/uv/) is a fast project manager, all-in-one replacement for `pip`, `venv`, and `pip-tools`. It also installs Python itself.
 
 ```bash
 uv python install 3.11   # install a Python version

@@ -58,8 +58,9 @@ class Countdown:
     def __next__(self):
         if self.current <= 0:
             raise StopIteration
+        value = self.current
         self.current -= 1
-        return self.current + 1
+        return value
 
 
 print(list(Countdown(3)))  # [3, 2, 1]

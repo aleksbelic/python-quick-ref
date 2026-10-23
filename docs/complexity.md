@@ -82,4 +82,4 @@ A function that takes data (or an open file object) and *returns* a result can b
 For anything destructive, like renaming or deleting files, plan first and act second: build the list of changes, offer a **dry run**, skip items already processed so running twice is harmless (*idempotence*), and make the safe behaviour the default argument.
 
 !!! tip "Measure, don't guess"
-    Reasoning with Big-O tells you what *scales*. Profile (`timeit`, `cProfile`, and from 3.15 the built-in sampling profiler) to find what is actually slow before you optimise.
+    Reasoning with Big-O tells you what *scales*. Profile (`timeit`, `cProfile`, and from 3.15 the `profiling.sampling` profiler) to find what is actually slow before you optimise.
