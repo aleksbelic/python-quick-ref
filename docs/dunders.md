@@ -48,9 +48,9 @@ class Person:
 
 
 p = Person('Ana')
-print(p)  # Person Ana
+print(p)        # Person Ana
 print(repr(p))  # Person('Ana')
-print([p])  # [Person('Ana')], containers use repr
+print([p])      # [Person('Ana')], containers use "repr"
 ```
 
 ## Comparison and arithmetic
@@ -75,7 +75,7 @@ class Vector:
         return f'Vector({self.x}, {self.y})'
 
 
-print(Vector(1, 2) + Vector(3, 4))  # Vector(4, 6)
+print(Vector(1, 2) + Vector(3, 4))   # Vector(4, 6)
 print(Vector(1, 2) == Vector(1, 2))  # True
 ```
 
@@ -100,8 +100,8 @@ class Playlist:
 
 
 playlist = Playlist(['a', 'b', 'c'])
-print(len(playlist))  # 3
-print(playlist[1])  # b
+print(len(playlist))    # 3
+print(playlist[1])      # b
 print('c' in playlist)  # True
 for song in playlist:
     print(song)
